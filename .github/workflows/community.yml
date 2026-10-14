@@ -18,7 +18,7 @@ jobs:
     if: github.event.action != 'labeled' && contains(github.event.issue.labels.*.name, 'setup')
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - run: python3 .github/scripts/community.py check
         env:
           GH_TOKEN: ${{ github.token }}
@@ -27,7 +27,7 @@ jobs:
     if: github.event.action == 'labeled' && github.event.label.name == 'approved' && contains(github.event.issue.labels.*.name, 'setup')
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: Add to the gallery
         run: python3 .github/scripts/community.py publish
         env:
