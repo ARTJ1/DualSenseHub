@@ -1,0 +1,27 @@
+name: Labels
+
+# Creates the labels the issue forms and the community bot use. Runs once when this file
+# reaches GitHub, and can be run again by hand from the Actions tab.
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/labels.yml']
+  workflow_dispatch:
+
+permissions:
+  issues: write
+
+jobs:
+  labels:
+    runs-on: ubuntu-latest
+    steps:
+      - env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          gh label create bug      --color d73a4a --description "Something doesn't work" --force
+          gh label create feel     --color f9a03f --description "A game's trigger feel is off" --force
+          gh label create text     --color c5def5 --description "Wrong or unclear text" --force
+          gh label create idea     --color a2eeef --description "Idea or wish" --force
+          gh label create setup    --color 7057ff --description "A shared setup for the Community tab" --force
+          gh label create approved --color 0e8a16 --description "Publish this setup in the gallery" --force

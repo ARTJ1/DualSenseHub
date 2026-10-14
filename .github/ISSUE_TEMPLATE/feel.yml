@@ -1,0 +1,23 @@
+name: A game's trigger feel is off
+description: Triggers feel wrong in a game — too heavy, too light, too early, too late
+labels: [feel]
+body:
+  - type: input
+    id: game
+    attributes:
+      label: Game
+    validations:
+      required: true
+  - type: textarea
+    id: details
+    attributes:
+      label: What feels off
+      description: Which trigger, what you did in the game, and what it should feel like instead.
+    validations:
+      required: true
+  - type: textarea
+    id: diagnostics
+    attributes:
+      label: Diagnostics
+      description: Filled in by the app (version, controller, game). Remove anything you don't want to share.
+      render: text

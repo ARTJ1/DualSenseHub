@@ -1,0 +1,46 @@
+name: Community setups
+
+# Players share setups through the "Share a setup" issue form (the app fills it in).
+# New and edited ones get a comment saying what the code contains; adding the `approved`
+# label publishes it to community/, and everyone's Community tab shows it.
+on:
+  issues:
+    types: [opened, edited, labeled]
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency: community
+
+jobs:
+  check:
+    if: github.event.action != 'labeled' && contains(github.event.issue.labels.*.name, 'setup')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 .github/scripts/community.py check
+        env:
+          GH_TOKEN: ${{ github.token }}
+
+  publish:
+    if: github.event.action == 'labeled' && github.event.label.name == 'approved' && contains(github.event.issue.labels.*.name, 'setup')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Add to the gallery
+        run: python3 .github/scripts/community.py publish
+        env:
+          GH_TOKEN: ${{ github.token }}
+      - name: Commit
+        env:
+          NUMBER: ${{ github.event.issue.number }}
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add community
+          git commit -m "Community: add setup from #$NUMBER"
+          git push
+          gh issue comment "$NUMBER" --body "Added to the gallery. Thanks for sharing!"
+          gh issue close "$NUMBER"

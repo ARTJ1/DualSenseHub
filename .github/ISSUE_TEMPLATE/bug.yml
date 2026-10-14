@@ -1,0 +1,17 @@
+name: Something doesn't work
+description: A bug, a crash, the controller not reacting
+labels: [bug]
+body:
+  - type: textarea
+    id: details
+    attributes:
+      label: What happened
+      description: What you did, what happened, and what you expected. Steps to repeat it if it happens every time.
+    validations:
+      required: true
+  - type: textarea
+    id: diagnostics
+    attributes:
+      label: Diagnostics
+      description: Filled in by the app (version, controller, game). Remove anything you don't want to share.
+      render: text

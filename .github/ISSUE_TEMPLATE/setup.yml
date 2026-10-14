@@ -1,0 +1,26 @@
+name: Share a setup
+description: Publish your trigger setup in the app's Community tab
+labels: [setup]
+body:
+  - type: markdown
+    attributes:
+      value: The easiest way is the app itself — Community → Share your setup → Publish. It fills this in for you.
+  - type: input
+    id: name
+    attributes:
+      label: Name
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: Which game, what it feels like, anything special.
+  - type: textarea
+    id: code
+    attributes:
+      label: Code
+      description: The setup code from the app (starts with DSHUB1:).
+      render: text
+    validations:
+      required: true

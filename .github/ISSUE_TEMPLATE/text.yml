@@ -1,0 +1,17 @@
+name: Wrong or unclear text
+description: A typo, a bad translation, a confusing explanation
+labels: [text]
+body:
+  - type: textarea
+    id: details
+    attributes:
+      label: Where and what
+      description: Which page, what it says, and what it should say.
+    validations:
+      required: true
+  - type: textarea
+    id: diagnostics
+    attributes:
+      label: Diagnostics
+      description: Filled in by the app (version, controller, game). Remove anything you don't want to share.
+      render: text
