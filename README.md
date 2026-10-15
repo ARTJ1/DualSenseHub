@@ -10,6 +10,7 @@ A small Windows app for the PS5 DualSense and DualSense Edge. Works over USB and
   - 32 profiles for popular games without trigger support, like GTA V, RDR2, Forza, CS2 and Skyrim.
   - Your own profile for any .exe
 - Light bar colour, player LEDs and a button test
+<img width="1184" height="771" alt="image" src="https://github.com/user-attachments/assets/552cd87b-79ac-40ac-8c14-4a2af49db43d" />
 
 ## Download
 
