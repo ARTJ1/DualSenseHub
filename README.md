@@ -10,7 +10,6 @@ A small Windows app for the PS5 DualSense and DualSense Edge. Works over USB and
   - 32 profiles for popular games without trigger support, like GTA V, RDR2, Forza, CS2 and Skyrim.
   - Your own profile for any .exe
 - Light bar colour, player LEDs and a button test
-<img width="1184" height="771" alt="image" src="https://github.com/user-attachments/assets/552cd87b-79ac-40ac-8c14-4a2af49db43d" />
 
 ## Download
 
@@ -29,7 +28,7 @@ Use **Send feedback** in Settings or the tray menu, or **Feel off? Tell me** on 
 ## Good to know
 
 - Steam keeps working alongside the app.
-- Elden Ring reads your weapon from memory only when Easy Anti-Cheat is off. With EAC on, it follows your D-pad instead and never touches the game.
+- Elden Ring reads your weapon and every attack from memory only when Easy Anti-Cheat is off. **Play offline** on its page starts the game through Steam without EAC, and the controller keeps working. With EAC on, it follows your D-pad instead and never touches the game.
 - Many games only send their own trigger effects over USB. On Bluetooth the app fills in a matching feel for them.
 - No vibration in a game on Bluetooth? The Vibration tab shows what to switch on in Steam.
 
